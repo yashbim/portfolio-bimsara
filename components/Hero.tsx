@@ -33,12 +33,12 @@ export default function Hero() {
                 />
               </svg>
             </a>
-            <a
+            {/* <a
               href="#projects"
               className="inline-flex items-center gap-2 rounded-md border border-white/15 px-4 py-2 text-white hover:bg-white/5"
             >
               See Projects
-            </a>
+            </a> */}
           </div>
         </div>
 
@@ -46,11 +46,11 @@ export default function Hero() {
           <div className="aspect-square w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
             <div className="flex h-full items-center justify-center">
               <Image
-                src="/globe.svg"
+                src="/portraits/5.png"
                 alt="Tech illustration"
-                width={128}
-                height={128}
-                className="h-32 w-32 opacity-70"
+                width={512}
+                height={512}
+                className=" opacity-70"
               />
             </div>
           </div>

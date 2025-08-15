@@ -7,16 +7,23 @@ export interface WorkExperience {
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
-    role: "Software Engineer",
-    company: "TechNova Labs",
-    period: "2023 — Present",
+    role: "Trainee Software Engineer",
+    company: "hSenid Mobile Solutions",
+    period: "June 2023 - August 2024",
     summary:
-      "Built microservices and internal tools, reducing deployment time by 40% and improving reliability.",
+      "Worked on integrating office suite tools, and creating reporting dashboards using Grafana for telecommunication API management.",
+  },
+  {
+    role: "Developer",
+    company: "Maverick Intelligence",
+    period: "Part Time",
+    summary:
+      "Built stock market prediction applications, and worked on ERP systems for real estate industries.",
   },
   {
     role: "Business Analyst",
-    company: "InsightWorks",
-    period: "2021 — 2023",
+    company: "hSenid Mobile Solutions",
+    period: "August 2025 - Present",
     summary:
       "Led analytics initiatives, defined KPIs, and partnered with engineering to ship data features.",
   },
