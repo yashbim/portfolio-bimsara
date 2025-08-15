@@ -21,10 +21,10 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
       "Built stock market prediction applications, and worked on ERP systems for real estate industries.",
   },
   {
-    role: "Business Analyst",
+    role: "Associate Business Analyst",
     company: "hSenid Mobile Solutions",
     period: "August 2025 - Present",
     summary:
-      "Led analytics initiatives, defined KPIs, and partnered with engineering to ship data features.",
+      "",
   },
 ];
