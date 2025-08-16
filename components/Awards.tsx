@@ -27,6 +27,12 @@ export default function Awards() {
 
                   <div className="flex-1 min-w-0">
                     <p className="font-medium text-sm leading-tight">{award.name}</p>
+                    
+                    {/* ✅ Show term if available */}
+                    {award.term && (
+                      <p className="text-xs text-gray-400 mt-0.5">{award.term}</p>
+                    )}
+
                     <p className="text-xs text-gray-300 capitalize mt-1">{award.type}</p>
                   </div>
                 </div>
