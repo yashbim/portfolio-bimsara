@@ -6,7 +6,7 @@ export default function Contact() {
       <div className="reveal">
         <h2 className="text-2xl font-semibold">Contact</h2>
         <p className="mt-4 max-w-prose text-gray-200">
-          Let's connect. I'm open to interesting engineering and product
+          Let&apos;s connect. I&apos;m open to interesting engineering and product
           challenges.
         </p>
         <div className="mt-6 flex flex-wrap items-center gap-4">

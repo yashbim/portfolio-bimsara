@@ -9,7 +9,7 @@ export default function Hero() {
             Software Engineer & Business Analyst
           </p>
           <h1 className="mt-3 text-4xl font-semibold leading-tight sm:text-5xl">
-            Hi, I'm <span className="text-[#00BFA6]">Bimsara</span>. I build
+            Hi, I&apos;m <span className="text-[#00BFA6]">Bimsara</span>. I build
             reliable software and shape strategy with data.
           </h1>
           <p className="mt-4 max-w-prose text-gray-200">
