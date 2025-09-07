@@ -15,9 +15,9 @@ export default function Home() {
   useRevealOnScroll();
 
   return (
-    <main id="home" className="relative">
+    <main id="home" className="relative min-h-screen flex flex-col overflow-hidden">
       {/* Background accent */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
         <div className="absolute left-1/2 top-[-10%] h-64 w-64 -translate-x-1/2 rounded-full bg-[#00BFA6]/20 blur-3xl" />
         <div className="absolute right-0 bottom-[-10%] h-72 w-72 rounded-full bg-[#00BFA6]/10 blur-3xl" />
       </div>
