@@ -27,12 +27,13 @@ export default function Header() {
             <ul className="flex items-center gap-6 text-sm">
               {NAV_LINKS.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     className="link-underline text-gray-200 hover:text-white focus-visible:text-white"
+                    scroll={true}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -76,13 +77,14 @@ export default function Header() {
             <ul className="flex flex-col py-4 text-base">
               {NAV_LINKS.map((item) => (
                 <li key={item.href}>
-                  <a
+                  <Link
                     href={item.href}
                     onClick={() => setOpen(false)}
                     className="block px-2 py-2 text-gray-200 hover:text-white"
+                    scroll={true}
                   >
                     {item.label}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
