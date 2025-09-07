@@ -18,7 +18,7 @@ export default function Hero() {
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <a
-              href="/Bimsara_Madurapperuma_CV.pdf"
+              href="/CV/CV-Bimsara.pdf"
               className="inline-flex items-center gap-2 rounded-md bg-[#00BFA6] px-4 py-2 font-medium text-[#0D1B2A] shadow-lg shadow-[#00BFA6]/30 hover:translate-y-[-1px] hover:shadow-xl hover:shadow-[#00BFA6]/40 active:translate-y-0"
               download
             >
