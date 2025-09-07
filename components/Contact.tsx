@@ -48,7 +48,7 @@ export default function Contact() {
 
   return (
     <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
-      <div className="reveal">
+      <div className="reveal text-left">
         <h2 className="text-2xl font-semibold">Contact</h2>
         <p className="mt-4 max-w-prose text-gray-200">
           Let&apos;s connect. I&apos;m open to interesting engineering and product challenges.

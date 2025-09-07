@@ -12,7 +12,7 @@ export interface AwardCategory {
 
 export const AWARD_CATEGORIES: AwardCategory[] = [
   {
-    title: "AIESEC Leadership",
+    title: "AIESEC",
     awards: [
       { name: "President", type: "AIESEC in IIT", icon: "/awards/AIESEC-Human-Blue.png", term: "Term 25.26" },
       { name: "Vice President (Marketing & Public Relations)", type: "AIESEC in IIT", icon: "/awards/AIESEC-Human-Blue.png", term: "Term 24.25" },
