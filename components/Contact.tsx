@@ -17,33 +17,34 @@ export default function Contact() {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSending(true);
-  setStatus(null);
+    e.preventDefault();
+    setIsSending(true);
+    setStatus(null);
 
-  try {
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(formData),
-    });
+    try {
+      const response = await fetch('/api/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
 
-    const result = await response.json();
+      const data = await response.json();
 
-    if (result.success) {
-      setStatus("Message sent successfully!");
-      setFormData({ name: "", email: "", subject: "", message: "" });
-    } else {
-      setStatus(result.message || "Something went wrong.");
+      if (response.ok) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        setStatus(data.error || "Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      setStatus("Failed to send message. Please try again.");
+    } finally {
+      setIsSending(false);
     }
-  } catch (error) {
-    console.error(error);
-    setStatus("Failed to send message.");
-  } finally {
-    setIsSending(false);
-  }
-};
-
+  };
 
   return (
     <section id="contact" className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
@@ -62,7 +63,7 @@ export default function Contact() {
               placeholder="Your Name"
               value={formData.name}
               onChange={handleChange}
-              className="w-full rounded-md bg-white/10 p-3 text-white focus:outline-none"
+              className="w-full rounded-md bg-white/10 p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00BFA6]"
               required
             />
             <input
@@ -71,7 +72,7 @@ export default function Contact() {
               placeholder="Your Email"
               value={formData.email}
               onChange={handleChange}
-              className="w-full rounded-md bg-white/10 p-3 text-white focus:outline-none"
+              className="w-full rounded-md bg-white/10 p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00BFA6]"
               required
             />
           </div>
@@ -81,7 +82,7 @@ export default function Contact() {
             placeholder="Subject"
             value={formData.subject}
             onChange={handleChange}
-            className="w-full rounded-md bg-white/10 p-3 text-white focus:outline-none"
+            className="w-full rounded-md bg-white/10 p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00BFA6]"
           />
           <textarea
             name="message"
@@ -89,17 +90,21 @@ export default function Contact() {
             value={formData.message}
             onChange={handleChange}
             rows={5}
-            className="w-full rounded-md bg-white/10 p-3 text-white focus:outline-none"
+            className="w-full rounded-md bg-white/10 p-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00BFA6] resize-vertical"
             required
           ></textarea>
           <button
             type="submit"
             disabled={isSending}
-            className="bg-[#00BFA6] text-white px-6 py-3 rounded-md hover:bg-[#00a58e] disabled:opacity-50"
+            className="bg-[#00BFA6] text-white px-6 py-3 rounded-md hover:bg-[#00a58e] disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
           >
             {isSending ? "Sending..." : "Send Message"}
           </button>
-          {status && <p className="mt-2 text-sm text-gray-300">{status}</p>}
+          {status && (
+            <p className={`mt-2 text-sm ${status.includes('success') ? 'text-green-400' : 'text-red-400'}`}>
+              {status}
+            </p>
+          )}
         </form>
 
         {/* Social Links */}
@@ -110,7 +115,7 @@ export default function Contact() {
               href={href}
               target={href.startsWith("mailto:") ? "_self" : "_blank"}
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10 transition-colors"
             >
               <Icon className="w-5 h-5 text-[#00BFA6]" />
               {name}
