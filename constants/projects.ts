@@ -5,6 +5,7 @@ export interface Project {
   img: string;
   github: string;
   demo?: string; 
+  website?: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -15,6 +16,15 @@ export const PROJECTS: Project[] = [
     img: "/project_images/VasthraAI_Logo.png",
     github: "https://github.com/yashbim/VasthraAI_IMPL.git",
     demo: "https://youtu.be/KBr93vnbiHU", 
+  },
+
+  {
+    title: "NLDS Website & Merch Store ",
+    tech: ["Typescript", "PostgreSQL", "Next.js", "YubaByte", "Grafana"],
+    desc: "Built the official website of the National Leadership Development Seminar 2025 by AIESEC in Sri Lanka. Includes a merch store, and processes orders via a Yugabyte AEON postgresql DB and views sales stats via a Grafana Dashboard.",
+    img: "/project_images/nlds-2025-logo.png",
+    github: "https://github.com/yashbim/nlds-2025.git",
+    website : "https://nlds-2025.vercel.app/", 
   },
   
   {

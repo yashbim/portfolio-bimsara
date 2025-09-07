@@ -7,6 +7,13 @@ export interface WorkExperience {
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
   {
+    role: "Associate Business Analyst",
+    company: "hSenid Mobile Solutions",
+    period: "August 2025 - Present",
+    summary:
+      "",
+  },
+  {
     role: "Trainee Software Engineer",
     company: "hSenid Mobile Solutions",
     period: "June 2023 - August 2024",
@@ -19,12 +26,5 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     period: "Part Time",
     summary:
       "Built stock market prediction applications, and worked on ERP systems for real estate industries.",
-  },
-  {
-    role: "Associate Business Analyst",
-    company: "hSenid Mobile Solutions",
-    period: "August 2025 - Present",
-    summary:
-      "",
   },
 ];

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { PROJECTS } from "@/constants/projects";
-import { FaGithub, FaYoutube } from "react-icons/fa";
+import { FaGithub, FaYoutube, FaExternalLinkAlt } from "react-icons/fa";
 
 export default function Projects() {
   return (
@@ -9,12 +9,12 @@ export default function Projects() {
       <div className="reveal">
         <div className="flex items-end justify-between gap-4">
           <h2 className="text-2xl font-semibold">Projects</h2>
-          <Link
+          {/* <Link
             href="/projects"
             className="text-sm text-[#00BFA6] hover:opacity-90"
           >
             See All Projects →
-          </Link>
+          </Link> */}
         </div>
         <div className="mt-6 grid gap-6 md:grid-cols-3">
           {PROJECTS.map((project) => (
@@ -23,15 +23,14 @@ export default function Projects() {
               className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-transform hover:-translate-y-1 h-full"
             >
               {/* Image */}
-<div className="aspect-video w-full relative">
-  <Image
-    src={project.img}
-    alt="Project preview"
-    fill
-    className="object-cover"
-  />
-</div>
-
+              <div className="aspect-video w-full relative">
+                <Image
+                  src={project.img}
+                  alt="Project preview"
+                  fill
+                  className="object-cover"
+                />
+              </div>
 
               {/* Content */}
               <div className="flex flex-col flex-1 p-5">
@@ -52,14 +51,16 @@ export default function Projects() {
 
                 {/* Buttons */}
                 <div className="mt-auto pt-4 flex gap-2 flex-wrap">
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 rounded-md border border-[#00BFA6] px-3 py-1 text-xs font-medium text-[#00BFA6] hover:bg-[#00BFA6] hover:text-black transition"
-                  >
-                    <FaGithub className="w-4 h-4" />
-                    GitHub
-                  </Link>
+                  {project.github && (
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      className="inline-flex items-center gap-2 rounded-md border border-[#00BFA6] px-3 py-1 text-xs font-medium text-[#00BFA6] hover:bg-[#00BFA6] hover:text-black transition"
+                    >
+                      <FaGithub className="w-4 h-4" />
+                      GitHub
+                    </Link>
+                  )}
 
                   {project.demo && (
                     <Link
@@ -71,6 +72,17 @@ export default function Projects() {
                       Watch Demo
                     </Link>
                   )}
+
+                  {project.website && (
+                    <Link
+                      href={project.website}
+                      target="_blank"
+                      className="inline-flex items-center gap-2 rounded-md border border-blue-500 px-3 py-1 text-xs font-medium text-blue-500 hover:bg-blue-500 hover:text-white transition"
+                    >
+                      <FaExternalLinkAlt className="w-4 h-4" />
+                      Visit Website
+                    </Link>
+                  )}
                 </div>
               </div>
             </article>
@@ -80,3 +92,4 @@ export default function Projects() {
     </section>
   );
 }
+  
