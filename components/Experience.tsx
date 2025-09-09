@@ -11,7 +11,7 @@ export default function Experience() {
     <section id="experience" className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
       <div className="reveal">
         <h2 className="text-4xl font-semibold">Work Experience</h2>
-        <div className="mt-6 divide-y divide-white/10 rounded-xl border border-white/10 bg-white/5">
+        <div className="mt-6 divide-y divide-white/10 rounded-xl border border-white/10 bg-static">
           {WORK_EXPERIENCE.map((item) => (
             <div
               key={item.role + item.company}

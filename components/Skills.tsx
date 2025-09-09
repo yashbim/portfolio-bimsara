@@ -9,7 +9,7 @@ export default function Skills() {
           {SKILLS.map((category) => (
             <div
               key={category.title}
-              className="rounded-xl border border-white/10 bg-white/5 p-5"
+              className="rounded-xl border border-white/10 bg-static p-5"
             >
               <h3 className="text-sm font-semibold uppercase tracking-wider text-[#00BFA6]">
                 {category.title}
@@ -18,7 +18,7 @@ export default function Skills() {
                 {category.skills.map((skill) => (
                   <span
                     key={skill}
-                    className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-sm text-gray-100"
+                    className="rounded-md border border-white/10 bg-static px-2 py-1 text-sm text-gray-100"
                   >
                     {skill}
                   </span>

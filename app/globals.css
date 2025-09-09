@@ -60,3 +60,8 @@ body {
 .link-underline:focus-visible::after {
   width: 100%;
 }
+
+/* Opaque card background to avoid particle distraction */
+.bg-static {
+  background-color: var(--color-static_bg);
+}

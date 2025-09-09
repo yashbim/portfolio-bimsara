@@ -54,7 +54,7 @@ export default function Contact() {
         </p>
 
         {/* Contact Form */}
-        <form onSubmit={handleSubmit} className="mt-8 space-y-4 bg-white/5 p-6 rounded-lg">
+        <form onSubmit={handleSubmit} className="mt-8 space-y-4 bg-static p-6 rounded-lg">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <input
               type="text"
@@ -110,7 +110,7 @@ export default function Contact() {
               href={href}
               target={href.startsWith("mailto:") ? "_self" : "_blank"}
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-3 py-2 hover:bg-white/10"
+              className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-static px-3 py-2 hover:bg-white/10"
             >
               <Icon className="w-5 h-5 text-[#00BFA6]" />
               {name}

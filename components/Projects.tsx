@@ -26,7 +26,7 @@ export default function Projects() {
           {projectsToShow.map((project) => (
             <article
               key={project.title}
-              className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-white/5 transition-transform hover:-translate-y-1 h-full"
+              className="group flex flex-col overflow-hidden rounded-xl border border-white/10 bg-static transition-transform hover:-translate-y-1 h-full"
             >
               {/* Image */}
               <div className="aspect-video w-full relative">
@@ -48,7 +48,7 @@ export default function Projects() {
                   {project.tech.map((tech) => (
                     <span
                       key={tech}
-                      className="rounded-md border border-white/10 bg-white/5 px-2 py-1 text-xs text-gray-100"
+                      className="rounded-md border border-white/10 bg-static px-2 py-1 text-xs text-gray-100"
                     >
                       {tech}
                     </span>

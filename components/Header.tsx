@@ -7,6 +7,22 @@ import { NAV_LINKS } from "@/constants/navigation";
 export default function Header() {
   const [open, setOpen] = useState(false);
 
+  const handleNavClick = (
+    e: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+    href: string,
+    opts?: { closeMenu?: boolean }
+  ) => {
+    if (!href.startsWith("#")) return; // external links handled normally
+    e.preventDefault();
+    const id = href.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      history.pushState(null, "", href);
+    }
+    if (opts?.closeMenu) setOpen(false);
+  };
+
   useEffect(() => {
     const close = () => setOpen(false);
     window.addEventListener("hashchange", close);
@@ -17,7 +33,7 @@ export default function Header() {
     <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-[#0D1B2A]/60">
       <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="flex h-16 items-center justify-between">
-          <Link href="#home" className="inline-flex items-center gap-2">
+          <Link href="#home" scroll={false} onClick={(e) => handleNavClick(e, "#home")} className="inline-flex items-center gap-2">
             <span className="text-lg font-semibold tracking-tight">
               Bimsara Madurapperuma
             </span>
@@ -30,7 +46,8 @@ export default function Header() {
                   <Link
                     href={item.href}
                     className="link-underline text-gray-200 hover:text-white focus-visible:text-white"
-                    scroll={true}
+                    scroll={false}
+                    onClick={(e) => handleNavClick(e, item.href)}
                   >
                     {item.label}
                   </Link>
@@ -79,9 +96,9 @@ export default function Header() {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    onClick={() => setOpen(false)}
+                    onClick={(e) => handleNavClick(e, item.href, { closeMenu: true })}
                     className="block px-2 py-2 text-gray-200 hover:text-white"
-                    scroll={true}
+                    scroll={false}
                   >
                     {item.label}
                   </Link>

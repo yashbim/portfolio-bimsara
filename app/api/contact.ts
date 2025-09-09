@@ -15,7 +15,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       from: "Your Portfolio <onboarding@resend.dev>", // Must be a verified domain in Resend
       to: "ybimsara03@gmail.com", // Replace with your email
       subject: subject || `Someones seeks your services :) - ${name}`,
-      reply_to: email,
+      replyTo: email,
       html: `
         <h2>New Contact Message</h2>
         <p><strong>Name:</strong> ${name}</p>

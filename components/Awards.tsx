@@ -14,9 +14,9 @@ export default function Awards() {
               {category.awards.map((award) => (
                 <div
                   key={award.name}
-                  className="flex items-start gap-4 rounded-xl border border-white/10 bg-white/5 p-5"
+                  className="flex items-start gap-4 rounded-xl border border-white/10 bg-static p-5"
                 >
-                  <div className="flex-shrink-0 h-12 w-12 rounded-lg bg-white/5 relative overflow-hidden">
+                  <div className="flex-shrink-0 h-12 w-12 rounded-lg bg-static relative overflow-hidden">
                     <Image
                       src={award.icon}
                       alt={`${award.type} icon`}
