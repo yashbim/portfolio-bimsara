@@ -34,8 +34,9 @@ export default function Blogs() {
                   The Impossible Free VPS — How to Get Oracle’s 24GB RAM Monster Without Paying a Dime
                 </h3>
                 <p className="mt-2 text-gray-300">
-                  A complete guide on how to legitimately obtain Oracle's surprisingly powerful free-tier ARM instance with 24GB RAM, including setup steps, troubleshooting, and activation tips.
+                A complete guide on how to legitimately obtain Oracle&rsquo;s surprisingly powerful free-tier ARM instance with 24GB RAM, including setup steps, troubleshooting, and activation tips.
                 </p>
+
               </div>
 
               <div className="mt-4">
