@@ -12,6 +12,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import Particles from "@/components/Particles";
 import BackToTop from "@/components/BackToTop";
+import Blogs from "@/components/Blogs";
 
 export default function Home() {
   useRevealOnScroll();
@@ -19,7 +20,10 @@ export default function Home() {
   return (
     <main id="home" className="relative">
       {/* Background accent */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10"></div>
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 -z-10"
+      ></div>
       <Particles />
 
       <Header />
@@ -27,6 +31,7 @@ export default function Home() {
       <About />
       <Experience />
       <Skills />
+      <Blogs />
       <Projects />
       <Awards />
       <Contact />
