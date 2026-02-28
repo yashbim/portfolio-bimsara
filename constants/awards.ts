@@ -17,7 +17,8 @@ export const AWARD_CATEGORIES: AwardCategory[] = [
       { name: "President", type: "AIESEC in IIT", icon: "/awards/AIESEC-Human-Blue.png", term: "Term 25.26" },
       { name: "Vice President (Marketing & Public Relations)", type: "AIESEC in IIT", icon: "/awards/AIESEC-Human-Blue.png", term: "Term 24.25" },
       { name: "International Relations & Campaigns Manager", type: "AIESEC in IIT", icon: "/awards/AIESEC-Human-Blue.png", term: "Winter Leadership Body - term 23.24" },
-      { name: "Organising Committee Vice President - National Leadership Development Seminar", type: "AIESEC in Sri Lanka", icon: "/awards/AIESEC-Human-Blue.png", term: "2025" },
+      { name: "Tech Lead", type: "DevTeam - AIESEC in Sri Lanka", icon: "/awards/AIESEC-Human-Blue.png", term: "Term 25.26" },
+      { name: "Organising Committee Vice President", type: "National Leadership Development Seminar - AIESEC in Sri Lanka", icon: "/awards/AIESEC-Human-Blue.png", term: "2025" },
     ]
   },
   {
