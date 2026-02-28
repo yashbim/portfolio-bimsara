@@ -19,7 +19,10 @@ export default function Experience() {
             >
               <div>
                 <p className="text-lg">
-                  <span className="font-bold">{item.role}</span> · {item.company}
+                  <span className="font-bold">{item.role}</span>
+                </p>
+                <p className="text-lg">
+                  <span className="font-thin">{item.company}</span>
                 </p>
                 <p className="mt-1 text-gray-300">{item.summary}</p>
               </div>
