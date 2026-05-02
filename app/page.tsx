@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { useRevealOnScroll } from "@/components/useRevealOnScroll";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
@@ -16,6 +17,24 @@ import Blogs from "@/components/Blogs";
 
 export default function Home() {
   useRevealOnScroll();
+
+  useEffect(() => {
+    const topic = process.env.NEXT_PUBLIC_NTFY_TOPIC;
+    if (!topic) return;
+
+    if (window.sessionStorage.getItem("ntfy_sent")) return;
+    window.sessionStorage.setItem("ntfy_sent", "true");
+
+    fetch(`https://ntfy.sh/${topic}`, {
+      method: "POST",
+      body: "A new user visited your portfolio website!",
+      headers: {
+        "Title": "Portfolio Visit",
+        "Priority": "default",
+        "Tags": "eyes,globe_with_meridians"
+      }
+    }).catch((err) => console.error("Error sending ntfy notification:", err));
+  }, []);
 
   return (
     <main id="home" className="relative">
@@ -40,3 +59,4 @@ export default function Home() {
     </main>
   );
 }
+
