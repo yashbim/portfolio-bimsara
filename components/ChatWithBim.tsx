@@ -18,9 +18,9 @@ const KONAMI = [
 ];
 
 const GREETINGS = [
-  "Oh. It's you. You actually found the secret button. I was hoping you wouldn't. What do you want?",
-  "Great. Another visitor who couldn't just look at the portfolio like a normal person. Go on then. Waste my time.",
-  "You unlocked the hidden chat. Bim would be proud. I am not. Ask me something so we can get this over with.",
+  "Oh. It's you. You actually found the secret button. I was hoping you wouldn't. Before I lose interest entirely — who am I even talking to?",
+  "Great. Another visitor who couldn't just look at the portfolio like a normal person. I'm not going to keep calling you 'you' all day, so out with it — what do people call you?",
+  "You unlocked the hidden chat. Bim would be proud. I am not. I suppose I should at least know whose time I'm about to waste. And you are...?",
 ];
 
 export default function ChatWithBim() {

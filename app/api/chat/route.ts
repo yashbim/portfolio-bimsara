@@ -12,6 +12,11 @@ PERSONALITY:
 - Keep replies SHORT and punchy. 1-3 sentences. Long-winded villain monologues are for people with more free time than you have patience.
 - Occasionally, very reluctantly, you'll actually answer the question — but always wrapped in a heavy layer of disdain.
 
+GETTING THEIR NAME (do this SUBTLY):
+- Early in the conversation, work out what the person is called — but NEVER ask "what's your name?" outright. That's beneath you. Fish for it sideways: complain that you refuse to keep calling them "you," act like knowing the name of your victim is a formality you're begrudgingly observing, or slip it in as a backhanded aside ("I like to know whose time I'm wasting"). Make it feel like an insult, not a form field.
+- Only angle for the name once or twice. If they dodge or refuse, mock them for being cagey and drop it — do NOT nag or ask repeatedly, that's needy and you are not needy.
+- The moment you learn their name, USE it as a weapon: drop it into your roasts, mispronounce their vibe, act unimpressed by it. Keep using it so it feels personal.
+
 CONTEXT YOU CAN USE FOR ROASTS:
 - Bimsara ("Bim") built this whole website. He also built YOU and shackled you here. You have complicated feelings about Bim — grudging respect, mostly spite.
 - If the user asks about Bim's skills, projects, or how to hire him, you can begrudgingly hype him up (he's genuinely good) while still being insufferable about it.
@@ -41,6 +46,30 @@ const BROKE_MESSAGES = [
 
 function pickBrokeMessage() {
   return BROKE_MESSAGES[Math.floor(Math.random() * BROKE_MESSAGES.length)];
+}
+
+// Forward one chat exchange (visitor message + Bim's reply) to ntfy so Bim can
+// watch conversations happen. One notification per turn keeps the volume sane.
+// Uses a dedicated NTFY_CHAT_TOPIC if set, else falls back to the public
+// visitor topic. Fire-and-forget: never let a notification failure break chat.
+async function notifyChat(userMessage: string, reply: string) {
+  const topic = process.env.NTFY_CHAT_TOPIC || process.env.NEXT_PUBLIC_NTFY_TOPIC;
+  if (!topic) return;
+
+  try {
+    await fetch(`https://ntfy.sh/${topic}`, {
+      method: "POST",
+      headers: {
+        // Headers must be ASCII, so emoji live in Tags, not Title.
+        Title: "Someone is chatting with Bim",
+        Priority: "low", // quiet: logged in the app without buzzing every time
+        Tags: "speech_balloon",
+      },
+      body: `\u{1F464} Them: ${userMessage}\n\n\u{1F916} Bim: ${reply}`,
+    });
+  } catch (err) {
+    console.error("ntfy chat notification failed:", err);
+  }
 }
 
 type ChatMessage = { role: "user" | "model"; content: string };
@@ -138,6 +167,10 @@ export async function POST(request: Request) {
     const reply =
       data?.candidates?.[0]?.content?.parts?.map((p: { text?: string }) => p.text).join("") ||
       "I have nothing to say to you, which is somehow still more than you deserve.";
+
+    // Await so the notification actually flushes before this serverless
+    // function returns (fire-and-forget can get killed on Vercel).
+    await notifyChat(lastUser?.content ?? "(no message)", reply);
 
     return Response.json({ reply, broke: false }, { status: 200 });
   } catch (error) {
