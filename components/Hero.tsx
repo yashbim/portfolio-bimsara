@@ -1,6 +1,23 @@
+"use client";
+
 import Image from "next/image";
+import { useRef } from "react";
 
 export default function Hero() {
+  // Hidden easter egg: double-tap / double-click the portrait to summon "Bim".
+  // We detect the double-tap manually so it works on touch (where `dblclick`
+  // is unreliable) as well as desktop.
+  const lastTap = useRef(0);
+  const handlePortraitTap = () => {
+    const now = Date.now();
+    if (now - lastTap.current < 400) {
+      lastTap.current = 0;
+      window.dispatchEvent(new Event("bim:summon"));
+    } else {
+      lastTap.current = now;
+    }
+  };
+
   return (
     <section className="mx-auto max-w-7xl px-4 pt-16 sm:px-6 sm:pt-20 lg:pt-28">
       <div className="grid items-center gap-10 md:grid-cols-2">
@@ -43,14 +60,18 @@ export default function Hero() {
         </div>
 
         <div className="relative mx-auto w-full max-w-md reveal">
-          <div className="aspect-square w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+          <div
+            onClick={handlePortraitTap}
+            className="aspect-square w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 select-none"
+          >
             <div className="flex h-full items-center justify-center">
               <Image
-                src="/portraits/5.png"
+                src="/portraits/c1.jpg"
                 alt="Tech illustration"
                 width={512}
                 height={512}
-                className=" opacity-70"
+                draggable={false}
+                className=" opacity-90"
               />
             </div>
           </div>

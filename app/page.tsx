@@ -14,6 +14,7 @@ import Footer from "@/components/Footer";
 import Particles from "@/components/Particles";
 import BackToTop from "@/components/BackToTop";
 import Blogs from "@/components/Blogs";
+import ChatWithBim from "@/components/ChatWithBim";
 
 export default function Home() {
   useRevealOnScroll();
@@ -56,6 +57,7 @@ export default function Home() {
       <Contact />
       <Footer />
       <BackToTop />
+      <ChatWithBim />
     </main>
   );
 }
