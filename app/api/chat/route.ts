@@ -130,6 +130,7 @@ export async function POST(request: Request) {
             temperature: 0.9,
             maxOutputTokens: 400,
             topP: 0.95,
+            thinkingConfig: { thinkingBudget: 0 },
           },
           safetySettings: [
             { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_ONLY_HIGH" },

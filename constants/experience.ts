@@ -7,15 +7,7 @@ export interface WorkExperience {
 }
 
 export const WORK_EXPERIENCE: WorkExperience[] = [
-    {
-    role: "Trainee Software Engineer",
-    company: "hSenid Mobile Solutions",
-    period: "June 2023 - August 2024",
-    icon:"/companies/hsenid.png",
-    summary:
-    "",
-      // "Worked on integrating office suite tools, and creating reporting dashboards using Grafana for telecommunication API management.",
-  },
+    
   {
     role: "Associate Business Analyst",
     company: "hSenid Mobile Solutions",
@@ -23,6 +15,15 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
     icon:"/companies/hsenid.png",
     summary:
       "",
+  },
+  {
+    role: "Trainee Software Engineer",
+    company: "hSenid Mobile Solutions",
+    period: "June 2023 - August 2024",
+    icon:"/companies/hsenid.png",
+    summary:
+    "",
+      // "Worked on integrating office suite tools, and creating reporting dashboards using Grafana for telecommunication API management.",
   },
   {
     role: "Tech Lead",

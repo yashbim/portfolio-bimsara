@@ -65,3 +65,22 @@ body {
 .bg-static {
   background-color: var(--color-static_bg);
 }
+
+/* Ghostly fade for the hidden chat hint button */
+@keyframes ghost-fade {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  50% {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+}
+.ghost-hint {
+  animation: ghost-fade 5s ease-in-out infinite;
+}
+.ghost-hint:hover {
+  animation-play-state: paused;
+  opacity: 0.9 !important;
+}

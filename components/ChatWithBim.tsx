@@ -39,6 +39,29 @@ export default function ChatWithBim() {
     setOpen(true);
   }, []);
 
+  // --- Ghost hint: drifts to a new random spot on the screen every few seconds ---
+  const [hintVisible, setHintVisible] = useState(false);
+  const [hintPos, setHintPos] = useState({ top: 80, left: 85 });
+
+  // Wait a while after page load before the hint starts showing up at all.
+  useEffect(() => {
+    const id = setTimeout(() => setHintVisible(true), 15000);
+    return () => clearTimeout(id);
+  }, []);
+
+  useEffect(() => {
+    if (unlocked || !hintVisible) return;
+    const wander = () => {
+      setHintPos({
+        top: 12 + Math.random() * 70, // vh, stays clear of header/footer
+        left: 8 + Math.random() * 78, // vw, stays clear of side edges
+      });
+    };
+    wander();
+    const id = setInterval(wander, 15000);
+    return () => clearInterval(id);
+  }, [unlocked, hintVisible]);
+
   // --- Mobile-friendly trigger: a tap sequence elsewhere dispatches this event ---
   useEffect(() => {
     const onSummon = () => reveal();
@@ -141,7 +164,46 @@ export default function ChatWithBim() {
     }
   }, [input, loading, dead, messages]);
 
-  if (!unlocked) return null;
+  if (!unlocked) {
+    if (!hintVisible) return null;
+    return (
+      <button
+        type="button"
+        onClick={reveal}
+        aria-label="Chat"
+        style={{
+          top: `${hintPos.top}vh`,
+          left: `${hintPos.left}vw`,
+          transition: "top 2s ease-in-out, left 2s ease-in-out",
+        }}
+        className="ghost-hint fixed z-40 flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-gray-300 backdrop-blur-sm hover:text-white"
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
+          <path
+            d="M4 8h13v5a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V8z"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M17 9h1.5a2.5 2.5 0 0 1 0 5H17"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M8 2.5c-.5.8-.5 1.3 0 2s.5 1.2 0 2M12 2.5c-.5.8-.5 1.3 0 2s.5 1.2 0 2"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+    );
+  }
 
   return (
     <>

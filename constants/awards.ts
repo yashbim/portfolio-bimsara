@@ -30,8 +30,9 @@ export const AWARD_CATEGORIES: AwardCategory[] = [
   {
     title: "Rotaract",
     awards: [
-      { name: "Director of Community Service", type: "Rotaract Club of Gampaha", icon: "/awards/rac-logo.png", term: "Term 24.25" },
+      { name: "President", type: "Rotaract Club of Gampaha", icon: "/awards/rac-logo.png", term: "Term 26.27" },
       { name: "Treasurer", type: "Rotaract Club of Gampaha", icon: "/awards/rac-logo.png", term: "Term 25.26" },
+      { name: "Director of Community Service", type: "Rotaract Club of Gampaha", icon: "/awards/rac-logo.png", term: "Term 24.25" },
     ]
   },
   {
