@@ -52,6 +52,43 @@ export default function Blogs() {
             </div>
           </div>
 
+          {/* Blog Preview Card */}
+          <div className="p-5 sm:p-6 flex flex-col sm:flex-row gap-6">
+            {/* Thumbnail */}
+            <div className="relative w-full sm:w-64 h-40 sm:h-40 flex-shrink-0 rounded-lg overflow-hidden border border-white/10">
+              <Image
+                src="/blog_thumbnail_2.jpeg"
+                alt="Sarcastic AI Research Project Blog"
+                fill
+                className="object-cover"
+              />
+            </div>
+
+            {/* Content */}
+            <div className="flex flex-col justify-between">
+              <div>
+                <h3 className="text-2xl font-semibold">
+                  How a Sarcastic AI That I Tried For Fun Actually Saved My Research Project
+                </h3>
+                <p className="mt-2 text-gray-300">
+                What started as a bit of fun with a snarky AI turned into an unexpected lifeline for my research project &mdash; here&rsquo;s how it happened.
+                </p>
+
+              </div>
+
+              <div className="mt-4">
+                <a
+                  href="https://medium.com/@ybimsara03/how-a-sarcastic-ai-that-i-tried-for-fun-actually-saved-my-research-project-b6728bf2f0bb"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:text-blue-300 underline transition text-lg"
+                >
+                  Read full article →
+                </a>
+              </div>
+            </div>
+          </div>
+
           {/* View on Medium Button */}
           <div className="p-6 flex justify-center">
             <a
