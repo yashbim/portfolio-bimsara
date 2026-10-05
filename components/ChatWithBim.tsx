@@ -212,7 +212,7 @@ export default function ChatWithBim() {
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-label="Chat with Bim"
-        className="fixed bottom-20 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-[#00BFA6]/40 bg-[#00BFA6] text-[#0D1B2A] shadow-lg shadow-[#00BFA6]/20 transition-all duration-300 hover:scale-105 hover:bg-[#00a58e] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+        className="fixed bottom-20 right-5 z-50 flex h-14 w-14 items-center justify-center rounded-full border border-[#00a3a3]/40 bg-[#00a3a3] text-[#001a1c] shadow-lg shadow-[#00a3a3]/20 transition-all duration-300 hover:scale-105 hover:bg-[#00b8b8] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
       >
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" aria-hidden>
           <path
@@ -228,7 +228,7 @@ export default function ChatWithBim() {
       {/* Chat panel */}
       <div
         className={
-          "fixed bottom-36 right-5 z-50 flex w-[min(92vw,380px)] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#0D1B2A]/95 shadow-2xl backdrop-blur transition-all duration-300 " +
+          "fixed bottom-36 right-5 z-50 flex w-[min(92vw,380px)] flex-col overflow-hidden rounded-2xl border border-white/10 bg-[#1a1305]/95 shadow-2xl backdrop-blur transition-all duration-300 " +
           (open
             ? "pointer-events-auto translate-y-0 opacity-100"
             : "pointer-events-none translate-y-4 opacity-0")
@@ -241,8 +241,8 @@ export default function ChatWithBim() {
         <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
           <div className="flex items-center gap-2">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00BFA6] opacity-60" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#00BFA6]" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#00a3a3] opacity-60" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-[#00a3a3]" />
             </span>
             <div className="leading-tight">
               <p className="text-sm font-semibold">Bim</p>
@@ -279,7 +279,7 @@ export default function ChatWithBim() {
                 className={
                   "max-w-[85%] rounded-2xl px-3.5 py-2 text-sm leading-relaxed " +
                   (m.role === "user"
-                    ? "rounded-br-sm bg-[#00BFA6] text-[#0D1B2A]"
+                    ? "rounded-br-sm bg-[#00a3a3] text-[#001a1c]"
                     : m.broke
                     ? "rounded-bl-sm border border-red-400/30 bg-red-500/10 text-red-100"
                     : "rounded-bl-sm bg-white/10 text-gray-100")
@@ -313,14 +313,14 @@ export default function ChatWithBim() {
               }}
               disabled={dead}
               placeholder={dead ? "The credits are gone. So is he." : "Say something regrettable..."}
-              className="w-full rounded-full bg-white/10 px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#00BFA6]/50 disabled:opacity-50"
+              className="w-full rounded-full bg-white/10 px-4 py-2 text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-[#00a3a3]/50 disabled:opacity-50"
             />
             <button
               type="button"
               onClick={send}
               disabled={loading || dead || !input.trim()}
               aria-label="Send message"
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#00BFA6] text-[#0D1B2A] transition hover:bg-[#00a58e] disabled:opacity-40"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#00a3a3] text-[#001a1c] transition hover:bg-[#00b8b8] disabled:opacity-40"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden>
                 <path

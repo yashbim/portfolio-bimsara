@@ -11,10 +11,10 @@ import Projects from "@/components/Projects";
 import Awards from "@/components/Awards";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import Particles from "@/components/Particles";
 import BackToTop from "@/components/BackToTop";
 import Blogs from "@/components/Blogs";
 import ChatWithBim from "@/components/ChatWithBim";
+import Starfield from "@/components/Starfield";
 
 export default function Home() {
   useRevealOnScroll();
@@ -38,14 +38,8 @@ export default function Home() {
   }, []);
 
   return (
-    <main id="home" className="relative">
-      {/* Background accent */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 -z-10"
-      ></div>
-      <Particles />
-
+    <main className="relative">
+      <Starfield />
       <Header />
       <Hero />
       <About />

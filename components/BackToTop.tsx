@@ -24,7 +24,7 @@ export default function BackToTop() {
       onClick={handleClick}
       aria-label="Back to top"
       className={
-        "fixed bottom-5 right-5 z-50 rounded-full border border-white/10 bg-white/10 p-3 text-white shadow-md backdrop-blur transition-all duration-300 hover:bg-white/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 " +
+        "fixed bottom-5 right-5 z-50 rounded-full border border-line bg-surface p-3 text-muted shadow-md transition-all duration-300 hover:border-accent/50 hover:text-foreground " +
         (visible ? "opacity-100 translate-y-0" : "pointer-events-none opacity-0 translate-y-2")
       }
     >

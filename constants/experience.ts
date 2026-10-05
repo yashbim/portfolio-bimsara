@@ -27,7 +27,15 @@ export const WORK_EXPERIENCE: WorkExperience[] = [
   },
   {
     role: "Tech Lead",
-    company: "DevTeam - AIESEC in Sri Lanka",
+    company: "National Development Team - AIESEC in Sri Lanka",
+    period: "January 2026 - Present",
+    icon:"/companies/AIESEC-Human-Blue.png",
+    summary:
+      "",
+  },
+  {
+    role: "Lead",
+    company: "National Development Team - AIESEC in Finland",
     period: "January 2026 - Present",
     icon:"/companies/AIESEC-Human-Blue.png",
     summary:

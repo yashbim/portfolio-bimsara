@@ -1,69 +1,123 @@
 @import "tailwindcss";
 
 :root {
-  --color-navy: #0D1B2A;
-  --color-teal: #00BFA6;
-  --color-static_bg: #192735;
-  --color-gray-50: #F5F7FA;
-  --color-white: #FFFFFF;
+  --background: #03080a;
+  --foreground: #e8f4f4;
+  --surface: #071419;
+  --surface-2: #0b1f26;
+  --line: #123840;
+  --muted: #9dbcbf;
+  --subtle: #6b8c90;
+  --accent: #00a3a3;
+  --accent-deep: #006655;
+  --accent-soft: #00ddd5;
+  --accent-2: #2bc4a0;
+  --on-accent: #001a1c;
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-accent: var(--accent);
+  --color-accent-deep: var(--accent-deep);
+  --color-accent-soft: var(--accent-soft);
+  --color-accent-2: var(--accent-2);
+  --color-on-accent: var(--on-accent);
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
 html {
   scroll-behavior: smooth;
 }
 
-/* Offset for sticky header when scrolling to anchors */
 section[id] {
-  scroll-margin-top: 80px; /* header height approximation */
+  scroll-margin-top: 72px;
 }
 
 body {
-  background-color: var(--color-navy);
-  color: var(--color-white);
-  font-family: var(--font-inter), ui-sans-serif, system-ui, -apple-system,
-    Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji",
-    "Segoe UI Emoji";
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
 }
 
 ::selection {
-  background: var(--color-teal);
-  color: var(--color-navy);
+  background: var(--accent);
+  color: var(--on-accent);
 }
 
 /* Reveal-on-scroll helper */
 .reveal {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 700ms ease, transform 700ms ease;
-  will-change: opacity, transform;
+  transform: translateY(14px);
+  transition: opacity 600ms cubic-bezier(0.22, 1, 0.36, 1),
+    transform 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 .reveal.in-view {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Smooth hover underline for nav links */
-.link-underline {
-  position: relative;
-}
-.link-underline::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -2px;
-  height: 2px;
-  width: 0;
-  background: var(--color-teal);
-  transition: width 200ms ease;
-}
-.link-underline:hover::after,
-.link-underline:focus-visible::after {
-  width: 100%;
+/* Top-of-page accent glow behind the hero */
+.hero-glow {
+  background: radial-gradient(
+    ellipse 60% 55% at 50% 0%,
+    rgba(0, 163, 163, 0.20),
+    transparent 70%
+  );
 }
 
-/* Opaque card background to avoid particle distraction */
-.bg-static {
-  background-color: var(--color-static_bg);
+/* Name gradient */
+.text-gradient {
+  background: linear-gradient(90deg, #00ddd5 0%, #00a3a3 55%, #2bc4a0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Mono eyebrow label */
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-2);
+}
+
+/* Card surface */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 1rem;
+  transition: border-color 200ms ease, background-color 200ms ease,
+    transform 200ms ease;
+}
+.card-hover:hover {
+  border-color: rgba(0, 221, 213, 0.45);
+  background: var(--surface-2);
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--muted);
+  border-radius: 9999px;
+  padding: 0.2rem 0.7rem;
+  font-size: 0.75rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 /* Ghostly fade for the hidden chat hint button */
@@ -83,4 +137,18 @@ body {
 .ghost-hint:hover {
   animation-play-state: paused;
   opacity: 0.9 !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .ghost-hint {
+    animation: none;
+  }
 }

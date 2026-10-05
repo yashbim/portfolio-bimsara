@@ -1,45 +1,50 @@
 import Image from "next/image";
 import { AWARD_CATEGORIES } from "@/constants/awards";
+import SectionHeading from "./SectionHeading";
 
 export default function Awards() {
   return (
-    <section id="awards" className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
+    <section id="awards" className="mx-auto max-w-6xl px-5 py-20 sm:px-8">
       <div className="reveal">
-        <h2 className="text-2xl font-semibold mb-8">Roles, Awards & Achievements</h2>
-        
-        {AWARD_CATEGORIES.map((category, categoryIndex) => (
-          <div key={category.title} className={categoryIndex > 0 ? "mt-10" : ""}>
-            <h3 className="text-xl font-medium text-gray-200 mb-4">{category.title}</h3>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {category.awards.map((award) => (
-                <div
-                  key={award.name}
-                  className="flex items-start gap-4 rounded-xl border border-white/10 bg-static p-5"
-                >
-                  <div className="flex-shrink-0 h-12 w-12 rounded-lg bg-static relative overflow-hidden">
-                    <Image
-                      src={award.icon}
-                      alt={`${award.type} icon`}
-                      fill
-                      className="object-cover opacity-80"
-                    />
-                  </div>
+        <SectionHeading
+          eyebrow="Leadership & recognition"
+          title="Roles, awards & achievements."
+        />
 
-                  <div className="flex-1 min-w-0">
-                    <p className="font-medium text-sm leading-tight">{award.name}</p>
-                    
-                    {/* ✅ Show term if available */}
-                    {award.term && (
-                      <p className="text-xs text-gray-400 mt-0.5">{award.term}</p>
-                    )}
-
-                    <p className="text-xs text-gray-300 capitalize mt-1">{award.type}</p>
+        <div className="space-y-12">
+          {AWARD_CATEGORIES.map((category) => (
+            <div key={category.title}>
+              <h3 className="mb-4 font-mono text-xs uppercase tracking-[0.18em] text-accent-soft">
+                {category.title}
+              </h3>
+              <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+                {category.awards.map((award) => (
+                  <div
+                    key={award.name + (award.term ?? "")}
+                    className="card card-hover flex items-start gap-4 p-5"
+                  >
+                    <div className="relative h-11 w-11 shrink-0 overflow-hidden rounded-lg border border-line bg-surface-2">
+                      <Image
+                        src={award.icon}
+                        alt=""
+                        fill
+                        sizes="44px"
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="min-w-0 flex-1">
+                      <p className="text-sm font-semibold leading-snug">{award.name}</p>
+                      <p className="mt-1 text-xs text-muted">{award.type}</p>
+                      {award.term && (
+                        <p className="mt-2 font-mono text-[11px] text-accent-2">{award.term}</p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
